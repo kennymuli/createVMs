@@ -1,6 +1,9 @@
 createVMs
 =========
-<P><B>INTRODUCTION/SETTING UP/GETTING STARTED</B>
+<P><B>INTRODUCTION</B>
+<P>This is the start of a project/hobby because I just want a simple script that will be able to provison machines on some of the large IaaS providers like Amazon, Rackspace, Microsoft, Digital Ocean... Current version only supports Digital Ocean, but later other providers will be added in. Feel free to contribute.
+
+<P><B>SETTING UP/GETTING STARTED</B>
 <P>This project is based on koalalorenzo's <a href="https://github.com/koalalorenzo/python-digitalocean" target="_blank">python-digitalocean</a>. Currently, this version provisions only Ubuntu 14.04 (x64).
 <P>There are two things you need to get from your Digital Ocean account to get started:
 <BR><BR>
