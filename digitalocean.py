@@ -2,14 +2,18 @@ import digitalocean
 import time
 import os
 
-#Constants
+#EDIT 
+
+#Constants: change these to match the information in your Digital Ocean account.
 do_token='INSERT DO_TOKEN HERE (SEE README FOR MORE INFORMATION)'
 key = 'INSERT SSH_KEY ID HERE (SEE README FOR MORE INFORMATION)'
 
-#Variables
+#NO NEED TO EDIT ANYTHING BELOW
+
+#Input for the name of the Droplet.
 cloud = raw_input('Name of the servers you want to create: ')
 
-#Select the size of the instance you want to provision
+#Select the size of the instance you want to provision.
 size_input = '\n\nHere are the available sizes on Digital Ocean: \n\n (1) 512MB \n (2) 1GB \n (3) 2GB \n (4) 4GB \n (5) 8GB \n (6) 16GB \n (7) 32GB \n (8) 48GB \n (9) 64GB \n\nPlease enter the corresponding size you wish to provision: '
 size = raw_input(size_input)
 while True:
@@ -101,8 +105,8 @@ droplet = digitalocean.Droplet(token=do_token,
                                ssh_keys=[key])
 
 droplet.create()
-droplet_network.create()
 
+#If successfully created, this will print.
 print '\n\nYour ' + rawsize + ' virtual machine was successfully provisioned in the \'' +rawregion+ "' region. You VM is called '"+cloud+".'"
 
 #Collect the IP address of the machine that was just provisioned
@@ -113,14 +117,10 @@ while True:
 		droplet_ip = droplet.ip_address
 		break
 
-#Return information about the server
-print ''
-print 'Your primary server IP address is: ' + droplet_ip
-print ''
+time.sleep(1)
 
-time.sleep(2)
-
-print 'Checking to see if the primary server is alive. Will continue once a response is established.'
+print 'Checking now to let you know when your server is up. Please wait...'
+print ''
 
 up = os.system('ping -t 1' + droplet_ip)
 
@@ -132,17 +132,6 @@ while True:
 		time.sleep(3)
 		up = os.system('ping -c 1 ' + droplet_ip)
 
-print 'Checking to see if the network server is alive. Will continue once a response is established.'
-
-up = os.system('ping -c 1' + droplet_network_ip)
-
-while True:
-	if up == 0:
-		print 'It is up, the program will continue.'
-		break
-	else:
-		time.sleep(3)
-		up = os.system('ping -c 1 ' + droplet_network_ip)
-
 print ''
-print 'Will now begin to run tests.'
+print 'It is up! Your server is ready.'
+print 'Your server IP address is: ' + droplet_ip
