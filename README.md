@@ -51,5 +51,5 @@ There are two lines that you must edit in the code:
 <P><B>RUNNING THE SCRIPT</P></B>
 Make sure you have Python installed. To run the script, you can navigate to the folder and type in the following command:
 ```shell
-sudo python digitalocean.py
+python digitalocean.py
 ```
