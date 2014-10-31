@@ -3,6 +3,41 @@ createVMs
 <P><B>INTRODUCTION</B>
 <P>This is the start of a project/hobby because I just want a simple script that will be able to provison machines on some of the large IaaS providers like Amazon, Rackspace, Microsoft, Digital Ocean... Current version only supports Digital Ocean, but later other providers will be added in. Feel free to contribute.
 
+<P>=================================================
+<P><B>AMAZON AWS INSTRUCTIONS (Use digitalocean.py) 
+<P>=================================================
+<P><B>SETTING UP/GETTING STARTED</B>
+<P>This project uses <a href="http://aws.amazon.com/sdk-for-python/" target="_blank">Boto</a>, Amazon AWS's Python SDK. This version can provision any type of OS or AWS Machine Image (AMI) in any region, but you have to do the research and find the ID of that OS/AMI. Maybe I'll include it in future versions, or maybe I won't... Isn't the suspense killing you?!
+<P>There are a few things you'll need to get started. Depending on your familiarity with AWS, it may or may not be annoying. It's not hard, just time-consuming.
+<BR><BR>
+<P><B>GENERATING YOUR AWS ACCESS KEY AND SECRET ACCESS KEY</B>
+<P>A lot of thought went into naming those keys, definitely. Luckily, a lot more thought went into AWS's super-awesome instruction manual(s). So to generate your access key if you don't know how to already, check it out here: <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html" target="_blank">http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html</a>
+<P>You will enter the two keys into their respective locations on <b>Line 7</b> and <b>Line 8</b>.
+<P><B>CREATING YOUR SSH KEY ON EC2 AND DOWNLOADING IT</B>
+<P>If you lose this key, it will be impossible to log into your AWS instances. Also, only computers/servers that have this key will be able to log into the AWS instances. If you need to generate a new SSH Key:
+<ol>
+<li>Log into your AWS account.
+<li>Click "EC2" under the "Services" tab on the left of the top header.
+<li>Under "Resources" in the main screen, you will see "# Key Pairs" <-- Click it.
+<li>Select the "Create Key Pair" button in the new screen. It is blue and on the top left.
+<li>Give it a key pair name. It can be anything. Remember it. 
+<li>You will insert this name into <b>Line 11</b> for aws_keypair
+</ol>
+<P><B>SELECTING YOUR REGION</B>
+<P>Sorry, I was too lazy to make a whole choice list of regions, and I figured you would appreciate as well if you could hard-code it. That would save you a keystroke! Anyway, enter your region into <b>Line 23</b>. Don't worry, all the regions and their IDs are listed in the commented lines above.
+<P><B>FINALLY, ENTER YOUR AMI ID</B>
+<P>This part is a bit annoying. The AMI is what you use as the Instance image. It comes in paravirtual (PV) and hardware-assisted virtual machines (HVM). Linux comes in different flavors and each flavor has multiple versions, and Windows has different OS versions as well, which come with or without versions of SQL. Each AMI also has a unique ID that is dependent on the geographical location (region) of the instance. It is up to you to find the ID and plug it into <b>Line 26</b>. AWS documentation provides a very comprehensive tutorial on different ways to find the AMI: <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html</a>
+<P><B>SETTING UP THE HOST MACHINE</P></B>
+<P>In order to use this script, you have to make sure you have Amazon AWS's Python SDK, Boto. You can install it with the command below:
+```python
+pip install boto
+```
+If you do not have pip, please install it by using the command below:
+```python
+sudo apt-get install python-pip
+```
+
+<BR><BR><BR><BR><BR>
 <P>===================================================
 <P><B>DIGITAL OCEAN INSTRUCTIONS (Use digitalocean.py)
 <P>===================================================
