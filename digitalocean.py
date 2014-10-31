@@ -2,18 +2,16 @@ import digitalocean
 import time
 import os
 
-#EDIT 
-
+# EDIT BELOW THIS LINE ----------------------------->
 #Constants: change these to match the information in your Digital Ocean account.
 do_token='INSERT DO_TOKEN HERE (SEE README FOR MORE INFORMATION)'
 key = 'INSERT SSH_KEY ID HERE (SEE README FOR MORE INFORMATION)'
 
-#NO NEED TO EDIT ANYTHING BELOW
-
+# YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE ------------------------->
 #Input for the name of the Droplet.
 cloud = raw_input('Name of the servers you want to create: ')
 
-#Select the size of the instance you want to provision.
+#Select the size of the Droplet you want to provision.
 size_input = '\n\nHere are the available sizes on Digital Ocean: \n\n (1) 512MB \n (2) 1GB \n (3) 2GB \n (4) 4GB \n (5) 8GB \n (6) 16GB \n (7) 32GB \n (8) 48GB \n (9) 64GB \n\nPlease enter the corresponding size you wish to provision: '
 size = raw_input(size_input)
 while True:
@@ -103,7 +101,6 @@ droplet = digitalocean.Droplet(token=do_token,
                                image='ubuntu-14-04-x64',
                                size=rawsize,
                                ssh_keys=[key])
-
 droplet.create()
 
 #If successfully created, this will print.
@@ -116,14 +113,12 @@ while True:
 	if droplet.ip_address:
 		droplet_ip = droplet.ip_address
 		break
-
 time.sleep(1)
 
+#Use the IP to do continuous ping tests to let you know when the VM is up
 print 'Checking now to let you know when your server is up. Please wait...'
 print ''
-
 up = os.system('ping -t 1' + droplet_ip)
-
 while True:
 	if up == 0:
 		print 'It is up, the program will continue.'
@@ -132,6 +127,7 @@ while True:
 		time.sleep(3)
 		up = os.system('ping -c 1 ' + droplet_ip)
 
+#Once the system is up, this will print with IP address information
 print ''
 print 'It is up! Your server is ready.'
 print 'Your server IP address is: ' + droplet_ip
