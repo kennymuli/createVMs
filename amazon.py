@@ -1,6 +1,7 @@
 import boto.ec2
 import time
 import os
+
 # EDIT BELOW THIS LINE --------------------------->
 #The access key and secret access key can be found in the IAM section of the AWS console. You need to create a user with those credentials if you haven't already, and then assign privileges.
 access_key = 'ENTER ACCESS KEY HERE'
