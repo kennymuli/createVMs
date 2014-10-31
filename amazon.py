@@ -1,7 +1,7 @@
 import boto.ec2
 import time
 import os
-
+# EDIT BELOW THIS LINE --------------------------->
 #The access key and secret access key can be found in the IAM section of the AWS console. You need to create a user with those credentials if you haven't already, and then assign privileges.
 access_key = 'ENTER ACCESS KEY HERE'
 secret_access_key = 'ENTER YOUR SECRET ACCESS KEY HERE'
@@ -24,6 +24,8 @@ region = 'ENTER THE REGION HERE (e.g., us-east-1)'
 #Each region's AMI has a unique AMI ID, and it's too exhaustive to list.
 ami = 'ENTER YOUR AMI HERE (e.g., ami-9eaa1cf6 is Ubuntu 14.04 LTS for US East 1 region.'
 
+
+# YOU DON'T NEED TO EDIT BELOW THIS LINE --------------------------------->
 #Connect to your EC2 account
 conn = boto.ec2.connect_to_region(region, aws_access_key_id = access_key, aws_secret_access_key = secret_access_key)
 
