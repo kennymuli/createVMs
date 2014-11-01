@@ -4,7 +4,7 @@ createVMs
 <P>This is the start of a project/hobby because I just want a simple script that will be able to provison machines on some of the large IaaS providers like Amazon, Rackspace, Microsoft, Digital Ocean... Current version only supports Digital Ocean, but later other providers will be added in. Feel free to contribute.
 
 <P>=================================================
-<P><B>AMAZON AWS INSTRUCTIONS (Use digitalocean.py) 
+<P><B>AMAZON AWS INSTRUCTIONS (Use amazon.py) 
 <P>=================================================
 <P><B>SETTING UP/GETTING STARTED</B>
 <P>This project uses <a href="http://aws.amazon.com/sdk-for-python/" target="_blank">Boto</a>, Amazon AWS's Python SDK. This version can provision any type of OS or AWS Machine Image (AMI) in any region, but you have to do the research and find the ID of that OS/AMI. Maybe I'll include it in future versions, or maybe I won't... Isn't the suspense killing you?!
