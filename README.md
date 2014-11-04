@@ -80,10 +80,11 @@ sudo apt-get install python-pip
 ```
 <BR><BR>
 <P><B>SETTING UP DIGITALOCEAN.PY</P></B>
-There are two lines that you must edit in the code: 
+There are three lines that you must edit in the code: 
 <ol>
 <li><b>Line 6: do_token</b>: insert your Digital Ocean token here
 <li><b>Line 7: key</b>: insert your Digital Ocean SSH Key ID here
+<li><b>Line 13: image_name</b>: insert the name of the image you want to install for the Droplet. A list of available images are on https://assets.digitalocean.com/oslist.png and directions for how to format the name is listed on Lines 10-12.
 </ol>
 <BR><BR>
 <P><B>RUNNING THE SCRIPT</P></B>
