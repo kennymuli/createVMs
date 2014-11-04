@@ -12,7 +12,7 @@ key = 'INSERT SSH_KEY ID HERE (SEE README FOR MORE INFORMATION)'
 #Format example: Ubuntu 14.04 x64 would be ubuntu-14-04-x64
 image_name ='INSERT IMAGE NAME HERE (for example, ubuntu-14-04-x64) '
 
-# YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE ------------------------->
+# YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE -------------------------> 
 #Input for the name of the Droplet.
 cloud = raw_input('Name of the servers you want to create: ')
 
