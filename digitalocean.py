@@ -7,6 +7,11 @@ import os
 do_token='INSERT DO_TOKEN HERE (SEE README FOR MORE INFORMATION)'
 key = 'INSERT SSH_KEY ID HERE (SEE README FOR MORE INFORMATION)'
 
+#Image: replace this with the image you would use to build the server. 
+#https://assets.digitalocean.com/oslist.png <--- for a full list of the available images.
+#Format example: Ubuntu 14.04 x64 would be ubuntu-14-04-x64
+image_name ='INSERT IMAGE NAME HERE (for example, ubuntu-14-04-x64) '
+
 # YOU DON'T NEED TO EDIT ANYTHING BELOW THIS LINE ------------------------->
 #Input for the name of the Droplet.
 cloud = raw_input('Name of the servers you want to create: ')
@@ -98,7 +103,7 @@ while True:
 droplet = digitalocean.Droplet(token=do_token,
                                name=cloud,
                                region=rawregion, 
-                               image='ubuntu-14-04-x64',
+                               image=image_name,
                                size=rawsize,
                                ssh_keys=[key])
 droplet.create()
